@@ -12,6 +12,7 @@
     "@reduxjs/toolkit": "^2.2.3",
     "@types/react-redux": "^7.1.33",
     "clsx": "^2.1.1",
+    "lucide-react": "^0.376.0",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
