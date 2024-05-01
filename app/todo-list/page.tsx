@@ -10,6 +10,8 @@ import { TodoType } from "@/types/todo-type"
 import { addTodo, removeTodo } from "@/redux/features/todolist/todo-slice"
 import { generateId } from "@/utils/generate-id"
 import { X } from "lucide-react"
+import { showModal } from "@/redux/features/modal/modal-slice"
+import { DialogContent } from "@/components/ui/dialog"
 
 const TodoList = () => {
   const [id, setId] = useState(generateId())
@@ -27,6 +29,7 @@ const TodoList = () => {
       })
     )
 
+    dispatch(showModal())
     setId(generateId())
     setTitle("")
     setDescription("")
@@ -35,6 +38,13 @@ const TodoList = () => {
   return (
     <MaxWidthWrapper className="flex items-center flex-col my-20 max-w-3xl">
       <h1 className="mb-10">To-Do List</h1>
+      <button
+        className="px-3 py-1.5 bg-white text-black rounded-md mb-5"
+        onClick={() => dispatch(showModal())}
+      >
+        show list item
+      </button>
+      <ModalItems todos={todos} />
       <div className="flex flex-col gap-3 w-full mb-20">
         <Input
           type="text"
@@ -87,5 +97,22 @@ const TodoItem = ({ todo }: { todo: TodoType }) => {
         <X className="size-4 text-black stroke-2" />
       </button>
     </div>
+  )
+}
+
+const ModalItems = ({ todos }: { todos: TodoType[] }) => {
+  return (
+    <DialogContent className="text-black h-[600px] shadow-lg flex flex-col gap-3 overflow-y-auto p-4">
+      {todos?.map(({ id, title, description }) => (
+        <div
+          key={id}
+          className="flex flex-col gap-2 border-black text-black border p-4 rounded-md shadow"
+        >
+          <h3 className="text-inherit text-xl font-medium">{title}</h3>
+          <p>id: {id}</p>
+          <p>{description}</p>
+        </div>
+      ))}
+    </DialogContent>
   )
 }
