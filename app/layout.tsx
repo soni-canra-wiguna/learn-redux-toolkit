@@ -15,7 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ReduxProvider>
-        <body>{children}</body>
+        <body>
+          {children}
+          <div id="modal-root" />
+        </body>
       </ReduxProvider>
     </html>
   )
