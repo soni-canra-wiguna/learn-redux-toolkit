@@ -6,14 +6,22 @@ export default function Home() {
     {
       title: "counter",
       hrefUrl: "/counter",
+      date_created: "01 may 2024",
     },
     {
       title: "todo list",
       hrefUrl: "/todo-list",
+      date_created: "01 may 2024",
     },
     {
       title: "modal",
       hrefUrl: "/modal",
+      date_created: "01 may 2024",
+    },
+    {
+      title: "update profile",
+      hrefUrl: "/update-profile",
+      date_created: "02 may 2024",
     },
   ]
   return (
