@@ -19,8 +19,8 @@ export default function Home() {
       date_created: "01 may 2024",
     },
     {
-      title: "update profile",
-      hrefUrl: "/update-profile",
+      title: "user profile",
+      hrefUrl: "/user-profile",
       date_created: "02 may 2024",
     },
   ]
